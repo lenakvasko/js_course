@@ -5,7 +5,7 @@
 const adminLogin = 'Kvasko';
 const adminPass = 'password';
 
-const messageCancel = 'Отменено пользователе!';
+const messageCancel = 'Отменено пользователем!';
 const messageProhibited = 'Доступ запрещён, неверный логин!';
 const messageWelcome = 'Добро пожаловать!';
 
