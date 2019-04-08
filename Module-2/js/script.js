@@ -24,3 +24,4 @@ if (numbers.length) {
     }
     alert(`Общая сумма чисел равна ${sum}`);
 }
+;

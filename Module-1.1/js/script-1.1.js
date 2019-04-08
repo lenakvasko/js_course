@@ -9,10 +9,11 @@ const taba = 6;
 const countOfGuests = Number(prompt('Введите количество необходимых мест в туре:'));
 const isInteger = Number.isInteger(countOfGuests);
 let status = false;
+console.log(countOfGuests);
 
 if (!isInteger || countOfGuests <= 0) {
     alert('Ошибка ввода!!!');
-} else if (countOfGuests === null) {
+} else if (countOfGuests === 0) {
     alert('Нам очень жаль, приходите ещё!');
 } else {
     if (!status && countOfGuests <= hurgada) {
