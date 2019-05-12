@@ -1,0 +1,43 @@
+body {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #8a948e;
+}
+
+.preview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0px;
+}
+
+.preview > li {
+    box-sizing: border-box;
+    display: block;
+    max-width: 25%;
+    padding: 0;
+    margin: 0;
+    border: 2px solid transparent;
+    font-size: 0;
+    list-style: none;
+    filter: grayscale(100%);
+}
+
+li > img {
+    width: 100%;
+    display: block;
+}
+
+img {
+    width: 100%;
+}
+
+.image-gallery {
+    max-width: 1280px;
+}
+
+li.active {
+    border: 2px solid #fff;
+    filter: grayscale(0%) sepia(100%);
+}
