@@ -1,0 +1,43 @@
+main {
+    font-family: sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main > div {
+    margin: 20px;
+    padding: 0 5px;
+    width: 350px;
+    height: auto;
+    border: 1px solid #cccccc;
+    text-align: center;
+}
+
+table, thead th, tbody td {
+    border: 1px solid #cccccc;
+}
+
+table {
+    margin: 10px auto;
+}
+
+input {
+    margin: 0 0 5px;
+}
+
+h2 {
+    margin: 10px;
+
+}
+
+.id {
+    width: 200px;
+}
+
+.name {
+    width: 50px;
+}
+
+.age {
+    width: 50px;
+}

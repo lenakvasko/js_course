@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Module-10</title>
+</head>
+<body>
+    <main>
+        <div class="box1">
+            <h2>Add new user</h2>
+            <input type="text" name="name" class="input input_add-user-name input_name" placeholder="enter name">
+            <input type="text" name="age" class="input input_add-user-age input_age" placeholder="enter age">
+            <button id="addUser" class="btn btn_add">Add user</button>
+            <table>
+                <thead>
+                <tr>
+                    <th class="id">ID</th>
+                    <th class="name">NAME</th>
+                    <th class="age">AGE</th>
+                </tr>
+                </thead>
+                <tbody class="show show_add_user"></tbody>
+            </table>
+        </div>
+    
+        <div class="box2">
+            <h2>Find user by ID</h2>
+            <input type="text" name="id" class="input input_user-by-id" placeholder="enter ID">
+            <button id="getUser" class="btn btn_user-by-id">Get user</button>
+            <table>
+                <thead>
+                <tr>
+                    <th class="id">ID</th>
+                    <th class="name">NAME</th>
+                    <th class="age">AGE</th>
+                </tr>
+                </thead>
+                <tbody class="show show_user-by-id"></tbody>
+            </table>
+        </div>
+    
+        <div class="box3">
+            <h2>Change user name and age</h2>
+            <input type="text" name="up_ID" class="input input_up-id" placeholder="enter ID">
+            <input type="text" name="up_name" class="input input_up-name" placeholder="enter new name">
+            <input type="text" name="up_age" class="input input_up-age" placeholder="enter new age">
+            <button id="editUser" class="btn btn_up">Update</button>
+            <table>
+                <thead>
+                <tr>
+                    <th class="id">ID</th>
+                    <th class="name">NAME</th>
+                    <th class="age">AGE</th>
+                </tr>
+                </thead>
+                <tbody class="show show_up"></tbody>
+            </table>
+        </div>
+    
+        <div class="box4">
+            <h2>Delete user by ID</h2>
+            <input type="text" name="id-delete" class="input input_del-ID" placeholder="enter ID">
+            <button id="deleteUser" class="btn btn_del">delete</button>
+            <p class="result_del"></p>
+        </div>
+    
+        <div class="box5">
+            <h2>Show all users</h2>
+            <button id="getAllUsers" class="btn btn_get-all-users">Get all users</button>
+            <table>
+                <thead>
+                <tr>
+                    <th class="id">ID</th>
+                    <th class="name">NAME</th>
+                    <th class="age">AGE</th>
+                </tr>
+                </thead>
+                <tbody class="show show_get-all-users"></tbody>
+            </table>
+        </div>
+    </main>   
+
+
+
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>
