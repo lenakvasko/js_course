@@ -4,12 +4,6 @@ const showGetAll = document.querySelector('.show_get-all-users');
 const showAddedUser = document.querySelector('.show_add_user');
 const showUserById = document.querySelector('.show_user-by-id');
 const showUpdatedUser = document.querySelector('.show_up');
-/*
-const btnGetAll = document.querySelector('.btn_get-all-users');
-const btnAddUser = document.querySelector('.btn_add');
-const btnGetUserById = document.querySelector('.btn_user-by-id');
-const btnEditUserById = document.querySelector('.btn_up');
-const btnDeleteUserById = document.querySelector('.btn_del');*/
 
 const inputUserById = document.querySelector('.input_user-by-id');
 const inputNewName = document.querySelector('.input_add-user-name');
@@ -24,11 +18,6 @@ const notifyDataDeleted = document.querySelector('.result_del');
 
 const url = 'https://test-users-api.herokuapp.com/users/';
 
-/*btnGetAll.addEventListener("click", getAllUsers);
-btnAddUser.addEventListener('click', addUser);
-btnGetUserById.addEventListener('click', getUser);
-btnEditUserById.addEventListener('click', editUser);
-btnDeleteUserById.addEventListener('click', deleteUser);*/
 
 const btn = document.body;
 
