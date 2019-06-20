@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Module-11</title>
+</head>
+<body>
+    <section class="content">
+
+    </section>
+    
+    <section class="filter">
+        <form class="form js-form">
+            <section data-group="size">
+                <h2>Screen size</h2>
+                <ul>
+                    <li><label><input type="checkbox" name="size" value="13">&nbsp;13"</label></li>
+                    <li><label><input type="checkbox" name="size" value="15">&nbsp;15"</label></li>
+                    <li><label><input type="checkbox" name="size" value="17">&nbsp;17"</label></li>
+                </ul>
+            </section>
+            <section data-group="color">
+                <h2>Color</h2>
+                <ul>
+                    <li><label><input type="checkbox" name="color" value="white">&nbsp;white</label></li>
+                    <li><label><input type="checkbox" name="color" value="gray">&nbsp;gray</label></li>
+                    <li><label><input type="checkbox" name="color" value="black">&nbsp;black</label></li>
+                </ul>
+            </section>
+            <section data-group="release_date">
+                <h2>Release date</h2>
+                <ul>
+                    <li><label><input type="checkbox" name="release_date" value="2015">&nbsp;2015</label></li>
+                    <li><label><input type="checkbox" name="release_date" value="2016">&nbsp;2016</label></li>
+                    <li><label><input type="checkbox" name="release_date" value="2017">&nbsp;2017</label></li>
+                </ul>
+            </section>
+            <button id="filter" type="submit">Filter</button>
+            <button id="clear" type="reset">Clear</button>
+        </form>
+    </section>
+    
+    <template>
+        <div class="item">
+            <h2>{{name}}</h2>
+            <ul class="item__info">
+                <li><b>Size: </b>{{size}}&Prime;</li>
+                <li><b>Color: </b>{{color}}</li>
+                <li><b>Price: </b>{{price}}$</li>
+                <li><b>Release date: </b>{{release_date}} year</li>
+                <li class="item__descr">{{descr}}</li>
+            </ul>
+            <img class="item__pic" src={{img}} alt="item pic">
+        </div>
+    </template>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>  
+    <script src="js/script.js"></script>
+</body>
+</html>
