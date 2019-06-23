@@ -74,7 +74,7 @@ function checkValidUrl(url) {
         img: data.image
       }), allUrls(urls);
       set();
-    })["catch"](function (err) {
+    }).catch(function (err) {
       return console.log('Error: ' + err);
     });
   } else if (isWritted) {
