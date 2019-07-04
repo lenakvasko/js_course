@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css">
+    <title>hw-13</title>
+  </head>
+  <body>
+    <form class="main-form">
+      <input type="text" placeholder="Place your URL here" />
+      <button type="submit" class="add-btn">Add</button>
+    </form>
+    <div class="url-container">
+      <ul class="url-list">
+        <template id="url-holder">
+          <li class="url-item">
+            <h2 class="url-title">{{ title }}</h2>
+            <p class="url-descr">{{ description }}</p>
+            <img src="{{ image }}" alt="" class="url-img" />
+            <a href="{{ url }}" target="_blank" class="url-link">Click here!</a>
+            <button class="delete-btn">Delete</button>
+          </li>
+        </template>
+        <template id="url-holder-saved-cards">
+          {{#each this}}
+          <li class="url-item">
+            <h2 class="url-title">{{ title }}</h2>
+            <p class="url-descr">{{ description }}</p>
+            <img src="{{ image }}" alt="" class="url-img" />
+            <a href="{{ url }}" target="_blank" class="url-link">Click here!</a>
+            <button class="delete-btn">Delete</button>
+          </li>
+          {{/each}}
+        </template>
+      </ul>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
