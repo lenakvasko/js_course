@@ -1,80 +1,49 @@
+import * as localStor from "../helper/localStor";
+
 export default class Model {
-    constructor() {
-      this.url =
-        "https://api.linkpreview.net/?key=5d0a4f2789c534b287f908bc71183ecd837b69d417c1a&q=";
-      this.linkAlredyExists = false;
-      this.linkURL = null;
-      this.resArr = [];
-      this.linkValidator = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
-    }
-    deleteCardFromArr(id) {
-      const deletedLink = id.previousElementSibling.href;
-      this.resArr = this.resArr.filter(el => el.url !== deletedLink);
-      // const indOfDelCard = array.forEach(el => {
-      //   if (el.url === deletedLink) {
-      //     array.splice(array.indexOf(el), 1);
-      //   }
-      // });
-      console.log(this.resArr);
-      localStorage.setItem("wasOpened", JSON.stringify(this.resArr));
-    }
-    addCardToArr(value) {
-      return fetch(this.url + value)
-        .then(res => {
-          if (res.ok) return res.json();
-          throw new Error("here is an error", error);
-        })
-        .then(data => {
-          if (this.linkAlredyExists) {
-            return;
-          }
-          if (this.linkValidator.test(value)) {
-            console.log(data);
-            this.resArr.push(data);
-            console.log(this.resArr);
-            localStorage.setItem("wasOpened", JSON.stringify(this.resArr));
-            return data;
-            // console.log(this.resArr);
-          }
-        });
-    }
-    checkIfLinkAlreadyExists(target) {
-      this.linkURL = Array.from(document.querySelectorAll(".url-link"));
-      console.log(this.linkURL);
-      console.log(target);
-      this.linkURL.some(el => {
-        if (el.href === target) {
-          console.log("yep");
-          this.linkAlredyExists = true;
-        }
-      });
-      this.linkURL.every(el => {
-        if (el.href !== target) {
-          console.log("nope");
-          this.linkAlredyExists = false;
-        }
-      });
-      if (this.linkURL.length === 0) {
-        console.log("here we go");
-        this.linkAlredyExists = false;
+  constructor() {
+    this.cards = [
+      {
+        url: "demo",
+        "logo-url": "https://www.freelogodesign.org/Content/img/logo-ex-7.png"
       }
-      console.log(this.linkAlredyExists);
-      return this.linkAlredyExists;
-    }
-    ifLocalStorage() {
-      const check = localStorage.getItem("wasOpened");
-      const checkToObj = JSON.parse(check);
-      console.log(checkToObj);
-      if (check) {
-        if (checkToObj.length > 0) {
-          checkToObj.forEach(el => this.resArr.push(el));
-          console.log("resArr", this.resArr);
+    ];
+  }
   
-          // this.deleteCard(deleteBtn, this.resArr);
-        }
-      }else{
-        return
-      }
-      return checkToObj;
+  updateLocStor() {
+    if (localStor.get("cardsData")) {
+      this.cards = localStor.get("cardsData");
     }
   }
+
+  isNotCorect(val) {
+    // если некорректный ввод, вернёт тип ошибки
+    const checkURL = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+    if (!checkURL.test(val)) {
+      return "notCorect";
+    } else if (this.cards.some(elem => val === elem.url)) {
+      return "haveIt";
+    }
+    return false;
+  }
+  addCard(inputValue) {
+    const data = {
+      key: "5cd40f3bec0e35c20a74cf61b9b1d52cacfe039b93914",
+      q: inputValue
+    };
+    return fetch(`https://api.linkpreview.net/?key=${data.key}&q=${data.q}`)
+      .then(res => res.json())
+      .then(response => {
+        this.cards.push({ url: inputValue, "logo-url": response.image });
+        localStor.set("cardsData", this.cards);
+        return this.cards;
+      })
+      .catch(e => console.error(e));
+  }
+
+  removeCard(curentURL) {
+    this.cards = this.cards.filter(elem => curentURL != elem.url);
+    localStor.set("cardsData", this.cards);
+    return this.cards;
+  }
+}
